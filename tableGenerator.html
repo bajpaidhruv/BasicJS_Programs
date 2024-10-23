@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generate the table</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+
+        }
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        button{
+            padding:10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h1{
+            margin-bottom: 20px;
+        }
+        .container{
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        textarea {
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-family: monospace;
+}
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>::Generate the Table::</h1>
+        <label for="number" > Enter your Number: </label>
+        <input type="number" name="" id="number">
+        <button onclick="generateTable()">Generate table</button>
+        <textarea name="table" id="table" placeholder="here is your output:" readonly></textarea>
+        <p id="error-message"></p>
+    </div>
+    <script>
+        function generateTable(){
+            const num=document.getElementById('number').value;
+            const table=document.getElementById('table');
+            const errormessage=document.getElementById('error-message');
+
+            table.value="";
+            errormessage.textContent=""
+
+            if (num<=0 || num==""){
+                errormessage.textContent="Please enter a valid number: "
+                return;
+
+            }
+            let t = "";
+    for (let i = 1; i <= 10; i++) {
+        t += `${num} x ${i} = ${num * i}\n`;
+    }
+
+    // Display the table in the text area
+    table.value = t;
+        }
+    </script>
+</body>
+</html>

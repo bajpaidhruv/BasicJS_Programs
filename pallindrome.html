@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: white;
+        }
+        .container{
+            background: rgb(226, 221, 221);
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+        h1{
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        button{
+            padding: 10px 20px;
+            
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Check whtether the number is Pallindrome or not?</h1>
+        <label for="number">Enter a number: </label>
+        <input type="number" id="number" placeholder="Enter a Number">
+        <button onclick="Pallindorme()" >Check</button>
+        <p id="result">The result is appeared here.</p>
+        
+    </div>
+    <script>
+        function Pallindorme(){
+            const num=document.getElementById('number').value;
+            if(num=="" || isNaN(num)){
+                document.getElementById('result').innerHTML="Please enter the valid input:!!!!";
+                return;
+            }
+            if(num<0){
+                document.getElementById('result').innerHTML="Please enter a posisitive number"
+                return;
+            }
+            temp=num;
+            res=0
+            while(temp!=0){
+                a=temp%10;
+                res=res*10+a;
+                temp=Math.floor(temp/10);
+            }
+            if(res==num){
+                document.getElementById('result').innerHTML="Yes Number is pallindrome>>"
+                console.log("yes");
+                
+            }
+            else{
+                document.getElementById('result').innerHTML="Yes Number is not pallindrome>>"
+                console.log("No");
+                
+            }
+        }
+    </script>
+</body>
+</html>

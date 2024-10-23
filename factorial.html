@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate the factorial</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #f4f4f4;
+          height: 100vh;
+            
+        }
+        .container{
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        h1{
+            margin-bottom: 20px;
+        }
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+
+        }
+        button{
+            padding:10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+        #niet{
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;      
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Factorial calculator</h1>
+        <label for="number">Enter a Number:</label>
+        <input type="number" name="" id="number" placeholder="Enter number here">
+        <button onclick="calculateFactorial()">Calculate factorail</button>
+        <p id="niet">The factorial will be displayed here: </p>
+    </div>
+    <script>
+        function calculateFactorial(){
+            // get the number from the input field
+            const num=document.getElementById('number').value;
+            if(num=="" || num<0){
+                document.getElementById('niet').innerHTML="Please enter a valid number!";
+                return;
+            }
+            res=1;
+            for(i=1;i<=num;i++){
+                res*=i;
+            }
+            document.getElementById('niet').innerHTML=`Factorial of ${num} is: ${res}`;
+        }
+    </script>
+</body>
+</html>
